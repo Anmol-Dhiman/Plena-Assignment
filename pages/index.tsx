@@ -1,10 +1,15 @@
 import type { NextPage } from 'next';
+import Link from 'next/link';
 
 
 const Home: NextPage = () => {
   return (
-    <div className='   bg-red-600  ' >
-      Plena Assignment
+    <div className='container'  >
+      <Link href="/faucet" className='font-bold '  >
+        {`Faucet For Testnet DAI on Polygon Mumbai >`}
+      </Link>
+
+
     </div>
   );
 };
