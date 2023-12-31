@@ -7,6 +7,7 @@ import Contracts from '../../utils/contract';
 import { writeContract, waitForTransaction, readContract } from '@wagmi/core'
 import { formatEther, parseEther } from 'viem';
 import FaucetABI from "../../utils/Faucet.json"
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const Faucet: NextPage = () => {
@@ -37,6 +38,12 @@ const Faucet: NextPage = () => {
     const mintDAI = async () => {
         try {
             setLoading(true)
+            toast('Approve Tx to mint testnet DAI', {
+                style: {
+                    background: "blue",
+                    color: "white"
+                }
+            })
             const { hash: FaucetTxHash } = await writeContract({
                 address: `0x${Contracts.Faucet}`,
                 abi: FaucetABI,
@@ -46,6 +53,12 @@ const Faucet: NextPage = () => {
             })
             await waitForTransaction({
                 hash: FaucetTxHash
+            })
+            toast('DAI testnet token successfuly minted', {
+                style: {
+                    background: "green",
+                    color: "white"
+                }
             })
             setLoading(false)
             setBalance(balance + amount)
@@ -91,6 +104,7 @@ const Faucet: NextPage = () => {
                         </>
                 }
             </div>
+            <Toaster />
         </div>
     );
 };
