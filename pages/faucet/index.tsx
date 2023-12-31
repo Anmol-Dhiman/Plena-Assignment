@@ -52,11 +52,12 @@ const Faucet: NextPage = () => {
             setAmount(0)
         } catch (e) {
             console.log(e)
+            setLoading(false)
         }
     }
     return (
         <div className='container' >
-            <Link href="/" className=' font-bold   '  >
+            <Link href="/" className=' font-bold button-elevation  '  >
                 {`<  Move Back To Supply DAI on Polygon Mumbai`}
             </Link>
             <div className=' flex flex-col  items-center justify-center  mt-14' >

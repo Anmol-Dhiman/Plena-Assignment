@@ -20,7 +20,7 @@ a {
 }
 
 .container {
-  @apply w-full mx-12 my-8
+  @apply w-full px-12 py-8
 }
 
 .loader {
